@@ -1,6 +1,6 @@
 # CybridApiOrganization::OrganizationsOrganizationApi
 
-All URIs are relative to *https://organization.demo.cybrid.app*
+All URIs are relative to *https://organization.sandbox.cybrid.app*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
