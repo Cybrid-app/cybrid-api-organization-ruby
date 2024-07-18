@@ -84,7 +84,7 @@ end
 
 ## delete_subscription
 
-> <SubscriptionOrganizationModel> delete_subscription(subscription_guid)
+> delete_subscription(subscription_guid)
 
 Delete Subscription
 
@@ -109,8 +109,7 @@ subscription_guid = 'subscription_guid_example' # String | Identifier for the su
 
 begin
   # Delete Subscription
-  result = api_instance.delete_subscription(subscription_guid)
-  p result
+  api_instance.delete_subscription(subscription_guid)
 rescue CybridApiOrganization::ApiError => e
   puts "Error when calling SubscriptionsOrganizationApi->delete_subscription: #{e}"
 end
@@ -118,9 +117,9 @@ end
 
 #### Using the delete_subscription_with_http_info variant
 
-This returns an Array which contains the response data, status code and headers.
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(<SubscriptionOrganizationModel>, Integer, Hash)> delete_subscription_with_http_info(subscription_guid)
+> <Array(nil, Integer, Hash)> delete_subscription_with_http_info(subscription_guid)
 
 ```ruby
 begin
@@ -128,7 +127,7 @@ begin
   data, status_code, headers = api_instance.delete_subscription_with_http_info(subscription_guid)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <SubscriptionOrganizationModel>
+  p data # => nil
 rescue CybridApiOrganization::ApiError => e
   puts "Error when calling SubscriptionsOrganizationApi->delete_subscription_with_http_info: #{e}"
 end
@@ -142,7 +141,7 @@ end
 
 ### Return type
 
-[**SubscriptionOrganizationModel**](SubscriptionOrganizationModel.md)
+nil (empty response body)
 
 ### Authorization
 
