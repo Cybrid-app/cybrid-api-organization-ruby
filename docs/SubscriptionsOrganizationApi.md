@@ -155,7 +155,7 @@ nil (empty response body)
 
 ## get_subscription
 
-> <SubscriptionOrganizationModel> get_subscription(subscription_guid)
+> <SubscriptionOrganizationModel> get_subscription(subscription_guid, opts)
 
 Get Subscription 
 
@@ -177,10 +177,13 @@ end
 
 api_instance = CybridApiOrganization::SubscriptionsOrganizationApi.new
 subscription_guid = 'subscription_guid_example' # String | Identifier for the subscription.
+opts = {
+  include_signing_key: true # Boolean | Flag to include signing key in the response.
+}
 
 begin
   # Get Subscription 
-  result = api_instance.get_subscription(subscription_guid)
+  result = api_instance.get_subscription(subscription_guid, opts)
   p result
 rescue CybridApiOrganization::ApiError => e
   puts "Error when calling SubscriptionsOrganizationApi->get_subscription: #{e}"
@@ -191,12 +194,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SubscriptionOrganizationModel>, Integer, Hash)> get_subscription_with_http_info(subscription_guid)
+> <Array(<SubscriptionOrganizationModel>, Integer, Hash)> get_subscription_with_http_info(subscription_guid, opts)
 
 ```ruby
 begin
   # Get Subscription 
-  data, status_code, headers = api_instance.get_subscription_with_http_info(subscription_guid)
+  data, status_code, headers = api_instance.get_subscription_with_http_info(subscription_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SubscriptionOrganizationModel>
@@ -210,6 +213,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **subscription_guid** | **String** | Identifier for the subscription. |  |
+| **include_signing_key** | **Boolean** | Flag to include signing key in the response. | [optional] |
 
 ### Return type
 
@@ -251,7 +255,8 @@ api_instance = CybridApiOrganization::SubscriptionsOrganizationApi.new
 opts = {
   page: 56, # Integer | The page index to retrieve.
   per_page: 56, # Integer | The number of entities per page to return.
-  guid: 'guid_example' # String | Comma separated subscription_guids to list subscriptions for.
+  guid: 'guid_example', # String | Comma separated subscription_guids to list subscriptions for.
+  include_signing_key: true # Boolean | Flag to include signing key in the response.
 }
 
 begin
@@ -288,6 +293,7 @@ end
 | **page** | **Integer** | The page index to retrieve. | [optional] |
 | **per_page** | **Integer** | The number of entities per page to return. | [optional] |
 | **guid** | **String** | Comma separated subscription_guids to list subscriptions for. | [optional] |
+| **include_signing_key** | **Boolean** | Flag to include signing key in the response. | [optional] |
 
 ### Return type
 
