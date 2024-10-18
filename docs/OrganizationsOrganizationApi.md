@@ -104,7 +104,7 @@ end
 
 api_instance = CybridApiOrganization::OrganizationsOrganizationApi.new
 organization_guid = 'organization_guid_example' # String | Identifier for the organization.
-patch_organization_organization_model = CybridApiOrganization::PatchOrganizationOrganizationModel.new({name: 'name_example'}) # PatchOrganizationOrganizationModel | 
+patch_organization_organization_model = CybridApiOrganization::PatchOrganizationOrganizationModel.new # PatchOrganizationOrganizationModel | 
 
 begin
   # Patch organization

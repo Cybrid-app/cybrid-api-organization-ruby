@@ -33,7 +33,7 @@ CybridApiOrganization.configure do |config|
 end
 
 api_instance = CybridApiOrganization::SubscriptionsOrganizationApi.new
-post_subscription_organization_model = CybridApiOrganization::PostSubscriptionOrganizationModel.new({name: 'name_example', type: 'webhook', url: 'url_example', environment: 'environment_example'}) # PostSubscriptionOrganizationModel | 
+post_subscription_organization_model = CybridApiOrganization::PostSubscriptionOrganizationModel.new({environment: 'sandbox', type: 'webhook', name: 'name_example', url: 'url_example'}) # PostSubscriptionOrganizationModel | 
 
 begin
   # Create Subscription
