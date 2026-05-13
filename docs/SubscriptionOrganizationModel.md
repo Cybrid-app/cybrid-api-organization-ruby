@@ -8,8 +8,9 @@
 | **organization_guid** | **String** | The organization guid for the subscription. | [optional] |
 | **name** | **String** | Name provided for the subscription. |  |
 | **type** | **String** | The type of subscription. |  |
-| **url** | **String** | The url for the subscription. |  |
-| **signing_key** | **String** | Subscription private signing key. | [optional] |
+| **url** | **String** | The url for the subscription. Required when subscription_type is webhook. | [optional] |
+| **signing_key** | **String** | Subscription private signing key. Optional when subscription_type is webhook. | [optional] |
+| **recipient** | **String** | Recipient email address. Required when subscription_type is email. | [optional] |
 | **deliveries_failing_since** | **Time** | ISO8601 datetime the deliveries started failing. | [optional] |
 | **environment** | **String** | The environment that the subscription is configured for; one of sandbox or production. |  |
 | **state** | **String** | The state of the subscription; one of storing, completed, or failed. |  |
@@ -29,6 +30,7 @@ instance = CybridApiOrganization::SubscriptionOrganizationModel.new(
   type: null,
   url: null,
   signing_key: null,
+  recipient: null,
   deliveries_failing_since: null,
   environment: null,
   state: null,
