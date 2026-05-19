@@ -181,7 +181,11 @@ opts = {
   per_page: 56, # Integer | The number of entities per page to return.
   guid: 'guid_example', # String | Comma separated subscription_delivery_guids to list subscription deliveries for.
   subscription_event_guid: 'subscription_event_guid_example', # String | Comma separated subscription_event_guids to list subscription deliveries for.
-  subscription_guid: 'subscription_guid_example' # String | Comma separated subscription_guids to list subscription deliveries for.
+  subscription_guid: 'subscription_guid_example', # String | Comma separated subscription_guids to list subscription deliveries for.
+  state: 'state_example', # String | Comma separated states to list subscription deliveries for.
+  event_type: 'event_type_example', # String | Comma separated event types to list subscription deliveries for.
+  completed_at_gte: 'completed_at_gte_example', # String | ISO8601 datetime; only deliveries completed at or after this time are returned.
+  completed_at_lt: 'completed_at_lt_example' # String | ISO8601 datetime; only deliveries completed before this time are returned.
 }
 
 begin
@@ -220,6 +224,10 @@ end
 | **guid** | **String** | Comma separated subscription_delivery_guids to list subscription deliveries for. | [optional] |
 | **subscription_event_guid** | **String** | Comma separated subscription_event_guids to list subscription deliveries for. | [optional] |
 | **subscription_guid** | **String** | Comma separated subscription_guids to list subscription deliveries for. | [optional] |
+| **state** | **String** | Comma separated states to list subscription deliveries for. | [optional] |
+| **event_type** | **String** | Comma separated event types to list subscription deliveries for. | [optional] |
+| **completed_at_gte** | **String** | ISO8601 datetime; only deliveries completed at or after this time are returned. | [optional] |
+| **completed_at_lt** | **String** | ISO8601 datetime; only deliveries completed before this time are returned. | [optional] |
 
 ### Return type
 
