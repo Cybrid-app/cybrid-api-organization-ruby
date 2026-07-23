@@ -14,25 +14,15 @@ require 'date'
 require 'time'
 
 module CybridApiOrganization
-  class SubscriptionDeliveryListOrganizationModel
-    # The total number of records available.
-    attr_accessor :total
-
-    # The page index to retrieve.
-    attr_accessor :page
-
-    # The number of entities per page to return.
-    attr_accessor :per_page
-
-    attr_accessor :objects
+  # Request body for subscription modification.
+  class PatchSubscriptionOrganizationModel
+    # Name for the subscription.
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total' => :'total',
-        :'page' => :'page',
-        :'per_page' => :'per_page',
-        :'objects' => :'objects'
+        :'name' => :'name'
       }
     end
 
@@ -44,16 +34,14 @@ module CybridApiOrganization
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'total' => :'Integer',
-        :'page' => :'Integer',
-        :'per_page' => :'Integer',
-        :'objects' => :'Array<SubscriptionDeliveryOrganizationModel>'
+        :'name' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'name'
       ])
     end
 
@@ -61,33 +49,19 @@ module CybridApiOrganization
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `CybridApiOrganization::SubscriptionDeliveryListOrganizationModel` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `CybridApiOrganization::PatchSubscriptionOrganizationModel` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `CybridApiOrganization::SubscriptionDeliveryListOrganizationModel`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `CybridApiOrganization::PatchSubscriptionOrganizationModel`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'total')
-        self.total = attributes[:'total']
-      end
-
-      if attributes.key?(:'page')
-        self.page = attributes[:'page']
-      end
-
-      if attributes.key?(:'per_page')
-        self.per_page = attributes[:'per_page']
-      end
-
-      if attributes.key?(:'objects')
-        if (value = attributes[:'objects']).is_a?(Array)
-          self.objects = value
-        end
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -95,32 +69,12 @@ module CybridApiOrganization
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @total.nil?
-        invalid_properties.push('invalid value for "total", total cannot be nil.')
+      if !@name.nil? && @name.to_s.length > 128
+        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 128.')
       end
 
-      if @total < 0
-        invalid_properties.push('invalid value for "total", must be greater than or equal to 0.')
-      end
-
-      if @page.nil?
-        invalid_properties.push('invalid value for "page", page cannot be nil.')
-      end
-
-      if @page < 0
-        invalid_properties.push('invalid value for "page", must be greater than or equal to 0.')
-      end
-
-      if @per_page.nil?
-        invalid_properties.push('invalid value for "per_page", per_page cannot be nil.')
-      end
-
-      if @per_page < 1
-        invalid_properties.push('invalid value for "per_page", must be greater than or equal to 1.')
-      end
-
-      if @objects.nil?
-        invalid_properties.push('invalid value for "objects", objects cannot be nil.')
+      if !@name.nil? && @name.to_s.length < 1
+        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -129,56 +83,23 @@ module CybridApiOrganization
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @total.nil?
-      return false if @total < 0
-      return false if @page.nil?
-      return false if @page < 0
-      return false if @per_page.nil?
-      return false if @per_page < 1
-      return false if @objects.nil?
+      return false if !@name.nil? && @name.to_s.length > 128
+      return false if !@name.nil? && @name.to_s.length < 1
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] total Value to be assigned
-    def total=(total)
-      if total.nil?
-        fail ArgumentError, 'total cannot be nil'
+    # @param [Object] name Value to be assigned
+    def name=(name)
+      if !name.nil? && name.to_s.length > 128
+        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 128.'
       end
 
-      if total < 0
-        fail ArgumentError, 'invalid value for "total", must be greater than or equal to 0.'
+      if !name.nil? && name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
       end
 
-      @total = total
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] page Value to be assigned
-    def page=(page)
-      if page.nil?
-        fail ArgumentError, 'page cannot be nil'
-      end
-
-      if page < 0
-        fail ArgumentError, 'invalid value for "page", must be greater than or equal to 0.'
-      end
-
-      @page = page
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] per_page Value to be assigned
-    def per_page=(per_page)
-      if per_page.nil?
-        fail ArgumentError, 'per_page cannot be nil'
-      end
-
-      if per_page < 1
-        fail ArgumentError, 'invalid value for "per_page", must be greater than or equal to 1.'
-      end
-
-      @per_page = per_page
+      @name = name
     end
 
     # Checks equality by comparing each attribute.
@@ -186,10 +107,7 @@ module CybridApiOrganization
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total == o.total &&
-          page == o.page &&
-          per_page == o.per_page &&
-          objects == o.objects
+          name == o.name
     end
 
     # @see the `==` method
@@ -201,7 +119,7 @@ module CybridApiOrganization
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [total, page, per_page, objects].hash
+      [name].hash
     end
 
     # Builds the object from hash

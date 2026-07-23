@@ -8,6 +8,7 @@ All URIs are relative to *https://organization.sandbox.cybrid.app*
 | [**delete_subscription**](SubscriptionsOrganizationApi.md#delete_subscription) | **DELETE** /api/subscriptions/{subscription_guid} | Delete Subscription |
 | [**get_subscription**](SubscriptionsOrganizationApi.md#get_subscription) | **GET** /api/subscriptions/{subscription_guid} | Get Subscription  |
 | [**list_subscriptions**](SubscriptionsOrganizationApi.md#list_subscriptions) | **GET** /api/subscriptions | Get subscriptions list |
+| [**update_subscription**](SubscriptionsOrganizationApi.md#update_subscription) | **PATCH** /api/subscriptions/{subscription_guid} | Patch subscription |
 
 
 ## create_subscription
@@ -304,5 +305,79 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_subscription
+
+> <SubscriptionOrganizationModel> update_subscription(subscription_guid, patch_subscription_organization_model)
+
+Patch subscription
+
+Update a subscription.  Required scope: **subscriptions:write**
+
+### Examples
+
+```ruby
+require 'time'
+require 'cybrid_api_organization_ruby'
+# setup authorization
+CybridApiOrganization.configure do |config|
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = CybridApiOrganization::SubscriptionsOrganizationApi.new
+subscription_guid = 'subscription_guid_example' # String | Identifier for the subscription.
+patch_subscription_organization_model = CybridApiOrganization::PatchSubscriptionOrganizationModel.new # PatchSubscriptionOrganizationModel | 
+
+begin
+  # Patch subscription
+  result = api_instance.update_subscription(subscription_guid, patch_subscription_organization_model)
+  p result
+rescue CybridApiOrganization::ApiError => e
+  puts "Error when calling SubscriptionsOrganizationApi->update_subscription: #{e}"
+end
+```
+
+#### Using the update_subscription_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SubscriptionOrganizationModel>, Integer, Hash)> update_subscription_with_http_info(subscription_guid, patch_subscription_organization_model)
+
+```ruby
+begin
+  # Patch subscription
+  data, status_code, headers = api_instance.update_subscription_with_http_info(subscription_guid, patch_subscription_organization_model)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SubscriptionOrganizationModel>
+rescue CybridApiOrganization::ApiError => e
+  puts "Error when calling SubscriptionsOrganizationApi->update_subscription_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **subscription_guid** | **String** | Identifier for the subscription. |  |
+| **patch_subscription_organization_model** | [**PatchSubscriptionOrganizationModel**](PatchSubscriptionOrganizationModel.md) |  |  |
+
+### Return type
+
+[**SubscriptionOrganizationModel**](SubscriptionOrganizationModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
