@@ -254,7 +254,8 @@ opts = {
   per_page: 56, # Integer | The number of entities per page to return.
   guid: 'guid_example', # String | Comma separated subscription_guids to list subscriptions for.
   environment: 'environment_example', # String | Environment to list subscriptions for.
-  state: 'state_example' # String | State to list subscriptions for.
+  state: 'state_example', # String | State to list subscriptions for.
+  type: 'type_example' # String | Comma separated types to list subscriptions for.
 }
 
 begin
@@ -293,6 +294,7 @@ end
 | **guid** | **String** | Comma separated subscription_guids to list subscriptions for. | [optional] |
 | **environment** | **String** | Environment to list subscriptions for. | [optional] |
 | **state** | **String** | State to list subscriptions for. | [optional] |
+| **type** | **String** | Comma separated types to list subscriptions for. | [optional] |
 
 ### Return type
 
