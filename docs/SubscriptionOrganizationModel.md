@@ -16,7 +16,7 @@
 | **environment** | **String** | The environment that the subscription is configured for; one of sandbox or production. |  |
 | **state** | **String** | The state of the subscription; one of storing, completed, or failed. |  |
 | **scheduled_deletion_at** | **Time** | ISO8601 datetime the subscription is scheduled to be deleted at; events continue to be delivered until then. | [optional] |
-| **deletion_protected** | **Boolean** | Whether the subscription is protected from deletion. | [optional] |
+| **protection_enabled** | **Boolean** | Whether the subscription is protected from deletion. | [optional] |
 | **failure_code** | **String** | The failure code of a subscription (if any) | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
@@ -39,7 +39,7 @@ instance = CybridApiOrganization::SubscriptionOrganizationModel.new(
   environment: null,
   state: null,
   scheduled_deletion_at: null,
-  deletion_protected: null,
+  protection_enabled: null,
   failure_code: null,
   created_at: null,
   updated_at: null
